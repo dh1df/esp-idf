@@ -601,4 +601,21 @@ menu "LWIP"
 
     endmenu # SNTP
 
+    menu "Routing"
+        config IP_FORWARD
+            bool "Enable IP Forwarding"
+            default n
+            select L2_TO_L3_COPY
+
+        config IP_ROUTING
+            bool "Enable IP Routing"
+            default n
+ 
+        config IP_ROUTING_TABLE_SIZE
+            int "Maximum number of IP routes"
+            depends on IP_ROUTING
+            default 8
+            range 1 256
+    endmenu # Routing
+
 endmenu

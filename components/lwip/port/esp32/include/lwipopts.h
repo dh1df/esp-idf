@@ -673,6 +673,13 @@
    ---------------------------------------
 */
 #define LWIP_HOOK_IP4_ROUTE_SRC         ip4_route_src_hook
+
+#ifdef CONFIG_IP_ROUTING
+#define LWIP_HOOK_FILENAME "hooks.h"
+
+#define LWIP_HOOK_ETHARP_GET_GW         ip4_route_gw_hook
+#endif
+
 /*
    ---------------------------------------
    ---------- Debugging options ----------
@@ -886,5 +893,7 @@ enum {
     } while (0);
 
 #define SOC_SEND_LOG //printf
+
+#define IP_FORWARD CONFIG_IP_FORWARD
 
 #endif /* __LWIPOPTS_H__ */
