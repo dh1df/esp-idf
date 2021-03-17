@@ -249,6 +249,13 @@ menu "LWIP"
 
             See RFC 4862.
 
+    config LWIP_IPV6_DISABLE_DNS
+        bool "Disable IPV6 name resolution"
+        default n
+        help
+            Enabling this option prevents IPV6 name resolution to compensate for cases where
+            LWIP_IPV6_AUTOCONFIG is disabled, however nameserver announcements exist
+
     menuconfig LWIP_NETIF_LOOPBACK
         bool "Support per-interface loopback"
         default y
